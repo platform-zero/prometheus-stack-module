@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "prometheus",
+  "repo": "prometheus-stack-module",
+  "runtimeId": "prometheus",
+  "lifecycle": "active",
+  "dependencies": [
+    "stack-foundation"
+  ],
+  "overlays": [
+    "stack.compose/prometheus.yml",
+    "stack.config/prometheus"
+  ]
+}
