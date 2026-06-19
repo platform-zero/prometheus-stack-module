@@ -7,8 +7,22 @@
   "dependencies": [
     "stack-foundation"
   ],
+  "runtimeDependencies": [
+    "stack-foundation",
+    "alertmanager",
+    "cadvisor",
+    "node-exporter",
+    "docker-exporter",
+    "loki"
+  ],
+  "contracts": [
+    "module-contract"
+  ],
+  "smoke": "external-only",
+  "smokeUnsupportedReason": "requires generated bundle context, deployed networking, secrets, or service dependencies",
   "overlays": [
     "stack.compose/prometheus.yml",
     "stack.config/prometheus"
-  ]
+  ],
+  "testAssets": []
 }
