@@ -23,7 +23,8 @@
   "overlays": [
     "stack.compose/prometheus.yml",
     "stack.config/prometheus",
-    "stack.containers/test-runner/playwright-tests/tests/deep/forward-auth/prometheus.spec.ts"
+    "stack.containers/test-runner/playwright-tests/tests/deep/forward-auth/prometheus.spec.ts",
+    "stack.kotlin/test-runner/src/main/kotlin/org/webservices/testrunner/suites/PrometheusMonitoringTests.kt"
   ],
   "testAssets": []
 }
