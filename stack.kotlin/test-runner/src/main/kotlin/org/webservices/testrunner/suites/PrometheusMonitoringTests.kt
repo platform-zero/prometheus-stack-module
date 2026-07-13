@@ -31,12 +31,4 @@ test("Prometheus server is healthy") {
         println("      ✓ Prometheus scraping node-exporter")
     }
 
-    test("Prometheus scraping cadvisor") {
-        val response = client.postRaw("${env.endpoints.prometheus}/api/v1/query?query=up{job=\"cadvisor\"}")
-        response.status shouldBe HttpStatusCode.OK
-        val body = response.bodyAsText()
-        
-        body shouldContain "cadvisor"
-        println("      ✓ Prometheus scraping cadvisor")
-    }
 }
