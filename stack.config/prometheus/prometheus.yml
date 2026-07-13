@@ -26,20 +26,6 @@ scrape_configs:
         labels:
           instance: 'node-exporter'
 
-  - job_name: 'cadvisor'
-    static_configs:
-      - targets: ['cadvisor:8080']
-        labels:
-          instance: 'cadvisor'
-
-  - job_name: 'docker'
-    static_configs:
-      - targets: ['cadvisor:8080']
-
-  - job_name: 'docker-health-exporter'
-    static_configs:
-      - targets: ['docker-health-exporter:8080']
-
   - job_name: 'tx-gateway'
     static_configs:
       - targets: ['tx-gateway:8080']
