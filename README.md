@@ -6,7 +6,7 @@
 - Lifecycle: `active`
 
 ## Owned overlays
-- `stack.compose/prometheus.yml`
+- `stack.runtime.yaml`
 - `stack.config/prometheus`
 
 ## Dependencies
