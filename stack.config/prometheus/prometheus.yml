@@ -18,6 +18,14 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
+  - job_name: 'market-data-exporter'
+    scrape_interval: 60s
+    scrape_timeout: 30s
+    static_configs:
+      - targets: ['market-data-exporter:8080']
+        labels:
+          instance: 'market-data-exporter'
+
   - job_name: 'node-exporter'
     scrape_interval: 15s
     scrape_timeout: 12s

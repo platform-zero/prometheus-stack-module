@@ -3,6 +3,31 @@ schemaVersion: 1
 module: "prometheus"
 target: "observability"
 services:
+  market-data-exporter:
+    image: "localhost/webservices/market-data-exporter:bundle"
+    build:
+      context: "./stack.containers/market-data-exporter"
+      containerfile: "Containerfile"
+    containerName: "market-data-exporter"
+    lifecycle: "daemon"
+    updatePolicy: "local"
+    placement: "rootful"
+    networks:
+    - "monitoring"
+    - "internet"
+    health:
+      test:
+      - "CMD"
+      - "wget"
+      - "--quiet"
+      - "--tries=1"
+      - "--spider"
+      - "http://localhost:8080/healthz"
+      interval: "30s"
+      timeout: "10s"
+      retries: 3
+      start_period: "20s"
+    restart: "unless-stopped"
   prometheus:
     image: "prom/prometheus:v3.9.1"
     containerName: "prometheus"
@@ -11,6 +36,7 @@ services:
     placement: "rootful"
     dependencies:
       caddy: "started"
+      market-data-exporter: "healthy"
     networks:
     - "monitoring"
     volumes:
