@@ -13,7 +13,7 @@ groups:
           description: "Container {{ $labels.container }} has been unhealthy for more than 2 minutes."
 
       - alert: ContainerDown
-        expr: up{job="docker"} == 0
+        expr: up{job="podman"} == 0
         for: 1m
         labels:
           severity: critical
